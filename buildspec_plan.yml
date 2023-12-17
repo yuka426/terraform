@@ -13,12 +13,8 @@ phases:
   build:
     commands:
       - terraform init
-      - terraform plan -out=./.tfplan
+      - terraform plan -out=planfile
 
 artifacts:
   files:
-    - ./.tfplan
-
-cache:
-  paths:
-    - '.terraform/**/*'
+    - planfile
