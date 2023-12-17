@@ -13,11 +13,11 @@ phases:
   build:
     commands:
       - terraform init
-      - terraform plan -out=plan.out
+      - terraform plan -out=planfile
 
 artifacts:
   files:
-    - plan.out
+    - planfile
 
 cache:
   paths:
