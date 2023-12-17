@@ -8,9 +8,11 @@ phases:
     commands:
       - terraform -version
       - echo $TF_VAR_terraform_cloud_token
-      - terraform init
+      - echo "credentials \"app.terraform.io\" { token = \"$TF_VAR_terraform_cloud_token\" }" > ~/.terraformrc
+
   build:
     commands:
+      - terraform init
       - terraform plan -out=plan.out
 
 artifacts:
