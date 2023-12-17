@@ -1,9 +1,13 @@
 version: 0.2
 
+env:
+  parameter-store:
+    terraform_cloud_tolen: "TERRAFORM_TOKEN"
 phases:
   pre_build:
     commands:
       - terraform -version
+      - echo $terraform_cloud_token
       - terraform init
   build:
     commands:
