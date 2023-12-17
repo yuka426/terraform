@@ -1,12 +1,9 @@
-resource "aws_s3_bucket" "terraform_state" {
-  bucket = "terraform-state"
-  versioning {
-    enabled = true
-  }
-}
+terraform {
+  cloud {
+    organization = "miyata"
 
-backend "s3" {
-  bucket = "erraform-state"
-  key    = "terraform.tfstate"
-  region = "ap-northeast-1"
+    workspaces {
+      name = "miyata1"
+    }
+  }
 }
