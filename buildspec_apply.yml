@@ -10,7 +10,7 @@ phases:
       - echo "credentials \"app.terraform.io\" { token = \"$TF_VAR_terraform_cloud_token\" }" > ~/.terraformrc
   build:
     commands:
-      - terraform apply
+      - terraform apply plan.out
 
 artifacts:
   files:
