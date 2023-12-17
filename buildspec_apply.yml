@@ -1,0 +1,17 @@
+version: 0.2
+
+env:
+  parameter-store:
+    TF_VAR_terraform_cloud_token: "TERRAFORM_TOKEN"
+phases:
+  pre_build:
+    commands:
+      - echo $TF_VAR_terraform_cloud_token
+      - echo "credentials \"app.terraform.io\" { token = \"$TF_VAR_terraform_cloud_token\" }" > ~/.terraformrc
+  build:
+    commands:
+      - terraform apply "plan.out"
+
+cache:
+  paths:
+    - '.terraform/**/*'
