@@ -1,18 +1,10 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      python: 3.8
-    commands:
-      - wget https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
-      - unzip terraform_1.0.0_linux_amd64.zip -d /usr/local/bin/
-      - terraform -version
-
   pre_build:
     commands:
+      - terraform -version
       - terraform init
-
   build:
     commands:
       - terraform plan -out=plan.out
