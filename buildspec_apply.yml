@@ -12,6 +12,10 @@ phases:
     commands:
       - terraform apply "plan.out"
 
+artifacts:
+  files:
+    - plan.out
+
 cache:
   paths:
     - '.terraform/**/*'
