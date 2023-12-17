@@ -13,7 +13,7 @@ phases:
   build:
     commands:
       - terraform init
-      - terraform plan -out=planfile
+      - terraform plan -out=./.tfplan
 
 artifacts:
   files:
