@@ -34,7 +34,7 @@ phases:
       - "chmod +x ./tfsec"
       - "mv ./tfsec /usr/local/bin/tfsec"
       - "echo $TF_VAR_terraform_cloud_token"
-      - "echo "credentials \"app.terraform.io\" { token = \"$TF_VAR_terraform_cloud_token\" }" > ~/.terraformrc"
+      - "echo credentials \"app.terraform.io\" { token = \"$TF_VAR_terraform_cloud_token\" } > ~/.terraformrc"
   build:
     commands:
       - "cd ${CODEBUILD_SRC_DIR}/${CODE_SRC_DIR}"
