@@ -1,1 +1,1 @@
-variable "terraform_cloud_token" {}
+variable "aws" { type = map(any) }

@@ -1,10 +1,10 @@
 terraform {
   cloud {
-    organization = "miyata"
+    organization = "dessun"
     hostname     = "app.terraform.io"
 
     workspaces {
-      name = "miyata2"
+      name = "emptio_stg"
     }
   }
 }

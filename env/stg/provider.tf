@@ -9,5 +9,11 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-northeast-1"
+  region = var.aws.region
+  default_tags {
+    tags = {
+      Environment = "stg"
+      Service     = "Emptio"
+    }
+  }
 }
