@@ -13,7 +13,7 @@ phases:
 
   build:
     commands:
-      - terraform init -backend-config=./env/${ENVIRONMENT}/backend.tf
+      - terraform init
       - terraform fmt -recursive
       - terraform validate
 
