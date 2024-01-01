@@ -8,6 +8,8 @@ phases:
     commands:
       - echo $TF_VAR_terraform_cloud_token
       - echo "credentials \"app.terraform.io\" { token = \"$TF_VAR_terraform_cloud_token\" }" > ~/.terraformrc
+      - pwd
+      - ls
 
   build:
     commands:
