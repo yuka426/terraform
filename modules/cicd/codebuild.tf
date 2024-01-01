@@ -9,7 +9,7 @@ resource "aws_codebuild_project" "terraform_codebuild_project" {
   }
 
   artifacts {
-    type = "NO_ARTIFACTS"
+    type = "CODEPIPELINE"
   }
 
   environment {
@@ -28,10 +28,7 @@ resource "aws_codebuild_project" "terraform_codebuild_project" {
     }
   }
   source {
-    type                = "GITHUB"
-    location            = "https://github.com/yuka426/terraform.git"
-    git_clone_depth     = 1
-    report_build_status = true
+    type                = "CODEPIPELINE"
     buildspec           = "./buildspec_${local.build_projects[count.index]}.yml"
   }
 }
