@@ -1,1 +1,1 @@
-variable "aws" { type = map(any) }
+# variable "aws" { type = map(any) }

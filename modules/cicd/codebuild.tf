@@ -14,7 +14,7 @@ resource "aws_codebuild_project" "terraform_codebuild_project" {
 
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image        = "public.ecr.aws/hashicorp/terraform:1.6.6"
+    image        = "aws/codebuild/amazonlinux2-x86_64-standard:5.0"
     type         = "LINUX_CONTAINER"
   }
   logs_config {
