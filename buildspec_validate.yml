@@ -10,9 +10,12 @@ phases:
     commands:
       - echo $TF_VAR_terraform_cloud_token
       - echo "credentials \"app.terraform.io\" { token = \"$TF_VAR_terraform_cloud_token\" }" > ~/.terraformrc
+
   build:
     commands:
-      - terraform apply -var-file=./env/${ENVIRONMENT}/${ENVIRONMENT}.tfvars --auto-approve
+      - terraform init -backend-config=./env/${ENVIRONMENT}/backend.tf
+      - terraform fmt -recursive
+      - terraform validate
 
 artifacts:
   files:
