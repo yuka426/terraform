@@ -10,14 +10,14 @@ echo "-------------------------"
 echo "Terraform Validate : ${tfValidate}"
 echo "Terraform Format   : ${tfFormat}"
 echo "------------------------"
-if [[ ${tfValidate} == "Y"]]
+if (( ${tfValidate} == "Y" ))
 then
     echo "## VALIDATION : Validating Terraform code ..."
     terraform validate
 fi
 tfValidateOutput=$?
 
-if [[ ${tfFormat} == "Y"]]
+if (( ${tfFormat} == "Y" ))
 then
     echo "## VALIDATION : Formatting Terraform code ..."
     terraform fmt -recursive
