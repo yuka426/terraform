@@ -13,6 +13,6 @@ rds = {
 }
 
 tags = {
-  Environment = "stg"
+  Environment = "miyata"
 }
 
