@@ -45,7 +45,7 @@ data "aws_iam_policy_document" "bucket_policy_doc_codepipeline_bucket" {
 }
 
 resource "aws_s3_bucket_ownership_controls" "codepipeline_control" {
-  bucket = aws_s3_bucket.bucket.codepipeline_bucket
+  bucket = aws_s3_bucket.codepipeline_bucket
 
   rule {
     object_ownership = "ObjectWriter"
