@@ -12,9 +12,9 @@ module "iam" {
   codepipeline_bucket = module.cicd.codepipeline_bucket
 }
 
-module "network" {
-  source = "../../modules/network"
-}
+# module "network" {
+#   source = "../../modules/network"
+# }
 
 module "cicd" {
   source        = "../../modules/cicd"

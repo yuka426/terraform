@@ -28,7 +28,9 @@ resource "aws_codebuild_project" "terraform_codebuild_project" {
     }
   }
   source {
-    type                = "CODEPIPELINE"
-    buildspec           = "/templates/buildspec_${local.build_projects[count.index]}.yml"
+    type            = "CODEPIPELINE"
+    # location        = "https://github.com/yuka426/terraform.git"
+    # git_clone_depth = 1
+    buildspec       = "./templates/buildspec_${local.build_projects[count.index]}.yml"
   }
 }
