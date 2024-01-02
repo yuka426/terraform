@@ -23,7 +23,7 @@ phases:
       - cd ${CODEBUILD_SRC_DIR}/${CODE_SRC_DIR}
       - mkdir -p ${CODEBUILD_SRC_DIR}/reports
       - echo ## TERRAFORM PLAN : Generate the Terraform Plan
-      - /bin/bash ${CODEBUILD_SRC_DIR}/${SCRIPT_DIR}/plan.sh ${ENABLE_TFVALIDATE} ${ENABLE_TFFORMAT}
+      - /bin/bash ${CODEBUILD_SRC_DIR}/${SCRIPT_DIR}/plan.sh
 
 artifacts:
   files:

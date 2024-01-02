@@ -49,7 +49,7 @@ resource "aws_codepipeline" "terraform_pipeline" {
         input_artifacts  = stage.value["input_artifacts"] != "" ? [stage.value["input_artifacts"]] : null
         output_artifacts = stage.value["output_artifacts"] != "" ? [stage.value["output_artifacts"]] : null
         version          = "1"
-        run_order                = index(local.build_projects, stage.value["name"]) + 2
+        run_order        = index(local.build_projects, stage.value["name"]) + 2
 
         configuration = {
           ProjectName = stage.value["provider"] == "CodeBuild" ? "terraform-${stage.value["name"]}" : null
