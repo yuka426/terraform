@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Accept Command Line Arguments
-tfValidate=$2
-tfFormat=$3
+tfValidate=$1
+tfFormat=$2
 # -----------------------------
 
 echo "### VALIDATION Overview ###"
