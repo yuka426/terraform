@@ -4,7 +4,6 @@ env:
   parameter-store:
     TF_VAR_terraform_cloud_token: "TERRAFORM_TOKEN"
   variables:
-    CODE_SRC_DIR: "env/stg"
     SCRIPT_DIR: "./templates/scripts"
     TF_VERSION: "1.6.6"
     ENABLE_TFVALIDATE: "Y"
@@ -12,6 +11,13 @@ env:
 phases:
   pre_build:
     commands:
+      - if [ "$CODEBUILD_WEBHOOK_HEAD_REF" = "refs/heads/staging" ]; then
+          export CODE_SRC_DIR="env/stg";
+        elif [ "$CODEBUILD_WEBHOOK_HEAD_REF" = "refs/heads/main" ]; then
+          export CODE_SRC_DIR="env/prd";
+        else
+          export CODE_SRC_DIR="env/stg";
+        fi
       - curl -s -qL -o terraform.zip https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip
       - unzip -o terraform.zip
       - mv terraform /bin
