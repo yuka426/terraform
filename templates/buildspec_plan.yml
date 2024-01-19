@@ -10,23 +10,15 @@ env:
 phases:
   pre_build:
     commands:
-      - if [ "$CODEBUILD_WEBHOOK_HEAD_REF" = "refs/heads/staging" ]; then
-          export CODE_SRC_DIR="env/xxx";
-        elif [ "$CODEBUILD_WEBHOOK_HEAD_REF" = "refs/heads/main" ]; then
-          export CODE_SRC_DIR="env/stg";
-        else
-          export CODE_SRC_DIR="env/xxx";
-        fi
       - curl -s -qL -o terraform.zip https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip
       - unzip -o terraform.zip
       - mv terraform /bin
       - rm terraform.zip
-      - echo $TF_VAR_terraform_cloud_token
       - echo "credentials \"app.terraform.io\" { token = \"$TF_VAR_terraform_cloud_token\" }" > ~/.terraformrc
 
   build:
     commands:
-      - cd ${CODEBUILD_SRC_DIR}/${CODE_SRC_DIR}
+      - cd ${CODEBUILD_SRC_DIR}/env/${ENVIRONMENT}
       - mkdir -p ${CODEBUILD_SRC_DIR}/reports
       - "echo ## TERRAFORM PLAN : Generate the Terraform Plan"
       - /bin/bash ${CODEBUILD_SRC_DIR}/${SCRIPT_DIR}/plan.sh
