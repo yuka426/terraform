@@ -11,10 +11,10 @@ env:
 phases:
   pre_build:
     commands:
-      - "echo $CODEBUILD_WEBHOOK_BASE_REF"
-      - if [ "$CODEBUILD_WEBHOOK_BASE_REF" = "refs/heads/staging" ]; then
+      - "echo $CODEBUILD_SOURCE_VERSION"
+      - if [ "$CODEBUILD_SOURCE_VERSION" = "refs/heads/staging" ]; then
           export CODE_SRC_DIR="env/xxx";
-        elif [ "$CODEBUILD_WEBHOOK_BASE_REF" = "refs/heads/main" ]; then
+        elif [ "$CODEBUILD_SOURCE_VERSION" = "refs/heads/main" ]; then
           export CODE_SRC_DIR="env/stg";
         else
           export CODE_SRC_DIR="env/xxx";
