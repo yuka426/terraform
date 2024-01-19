@@ -28,6 +28,8 @@ phases:
 
   build:
     commands:
+      - "echo $CODEBUILD_SRC_DIR"
+      - "echo $CODE_SRC_DIR" 
       - cd ${CODEBUILD_SRC_DIR}/${CODE_SRC_DIR}
       - "echo ## TERRAFORM INIT : Initialize the Terraform Workspace"
       - terraform init
