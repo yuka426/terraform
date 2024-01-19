@@ -29,9 +29,9 @@ phases:
   build:
     commands:
       - cd ${CODEBUILD_SRC_DIR}/${CODE_SRC_DIR}
-      - echo "## TERRAFORM INIT : Initialize the Terraform Workspace"
+      - "echo ## TERRAFORM INIT : Initialize the Terraform Workspace"
       - terraform init
-      - echo "## VALIDATION : Starting ...""
+      - echo "## VALIDATION : Starting ..."
       - mkdir -p ${CODEBUILD_SRC_DIR}/reports
       - /bin/bash ${CODEBUILD_SRC_DIR}/${SCRIPT_DIR}/check.sh ${ENABLE_TFVALIDATE} ${ENABLE_TFFORMAT}
 
