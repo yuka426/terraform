@@ -19,6 +19,7 @@ module "iam" {
 module "cicd" {
   source        = "../../modules/cicd"
   iam_roles_arn = module.iam.iam_roles_arn
+  tags          = var.tags
 }
 
 
