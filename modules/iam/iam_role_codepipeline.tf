@@ -10,13 +10,6 @@ resource "aws_iam_role" "codepipeline_role" {
         "Service": "codepipeline.amazonaws.com"
       },
       "Effect": "Allow"
-    },
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "codebuild.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
     }
   ]
 }
