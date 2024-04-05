@@ -7,7 +7,7 @@ ecs = {
 }
 
 rds = {
-  instance_class          = "db.t4g.medium"
+  instance_class          = "db.t3.medium"
   deletion_protection     = false
   backup_retention_period = 1
 }
